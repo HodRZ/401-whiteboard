@@ -1,0 +1,14 @@
+{
+  "name": "401-whiteboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pnpm --stream -r test",
+    "start": "pnpm --stream -r start",
+    "start:dev": "pnpm --stream -r run start:dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
