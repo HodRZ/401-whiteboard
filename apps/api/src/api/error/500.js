@@ -1,7 +1,7 @@
 'use strict'
 
 function handleServerError(err, req, res, next) {
-    res.status(500).send('Something Went Wrong !')
+    res.status(500).json('Something Went Wrong !')
 }
 
 module.exports = {

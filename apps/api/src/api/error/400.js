@@ -1,7 +1,7 @@
 'use strict'
 
 function handleNotFound(err, req, res, next) {
-    res.status(404).send('Sorry! Page Not Found !')
+    res.status(404).json('Sorry! Page Not Found !')
 }
 
 module.exports = {

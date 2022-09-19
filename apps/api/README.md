@@ -1,10 +1,12 @@
-# 401-Whiteboard-api
+# 401-Whiteboard-backend
 
 **Author**: Hodaifa Zawahreh
 
 **Github**: [HodRZ](https://github.com/HodRZ)
 
-**Version**: 1.2.0
+**Version**: 1.4.0
+
+**Frontend repo**: [here](https://github.com/HodRZ/401-whiteboard-frontend)
 
 **Live Url** : [whiteboard](https://whiteboard-hod.herokuapp.com/)
 
@@ -17,7 +19,7 @@ a stress-relief cheerful whiteboard for the 401 class
 
 ## Architecture
 
-this app uses the **PERN Stack** and a **Monorepo** for version control
+this app uses the **PERN Stack**
 
 - Postgress
 - Express
@@ -42,4 +44,17 @@ this app uses the **PERN Stack** and a **Monorepo** for version control
 
 - 1.2.0
   - Add error handlers
+
+- 1.2.1
+  - Add env to workflow
+
+- 1.3.0
+  - Add comments model
+  - Associated comments with posts
+  - Add routes collection
+  - Update existing routes to use collection
+
+- 1.4.0
+  - Add User model and routes
+  - Add basic authentication
  <!-- ## Credit and Collaborations -->
