@@ -6,8 +6,8 @@
 
 **Version**:  1.2.0
 
-- *API* : 1.2.0
-- *Client* : 1.4.0
+- *API* : 1.4.0
+- *Client* : 1.2.0
 
 **Live Url** :
 
