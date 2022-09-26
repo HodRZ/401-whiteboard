@@ -1,7 +1,7 @@
 'use strict'
 
 const User = (sequelize, DataTypes, zlib, bcrypt) => sequelize.define('User', {
-    name: {
+    username: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'New User'
@@ -11,7 +11,11 @@ const User = (sequelize, DataTypes, zlib, bcrypt) => sequelize.define('User', {
         validate: {
             isEmail: true
         },
-        allowNull: false
+        allowNull: false,
+        set(data) {
+            const sanitized = data.toLowerCase()
+            this.setDataValue('email', sanitized)
+        }
     },
     birthday: {
         type: DataTypes.DATEONLY,
@@ -30,19 +34,26 @@ const User = (sequelize, DataTypes, zlib, bcrypt) => sequelize.define('User', {
         }
     },
     about: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         set(data) {
             const deflated = zlib.deflateSync(data).toString('base64')
             this.setDataValue('about', deflated)
         },
         get() {
             const data = this.getDataValue('about');
-            const inflated = zlib.inflateSync(Buffer.from(data, 'base64')).toString();
-            return inflated
+            if (data) {
+                const inflated = zlib.inflateSync(Buffer.from(data, 'base64'));
+                return inflated.toString()
+            } else {
+                return '--'
+            }
 
         }
-
+    },
+    access_token: {
+        type: DataTypes.VIRTUAL
     }
+
 })
 
 module.exports = { User }

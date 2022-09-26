@@ -6,6 +6,7 @@
   "scripts": {
     "test": "pnpm --stream -r test",
     "start": "pnpm --stream -r start",
+    "dev": "pnpm --stream -r dev",
     "start:dev": "pnpm --stream -r run start:dev"
   },
   "keywords": [],

@@ -26,7 +26,7 @@ async function createCmnt(req, res, next) {
 async function getCmntById(req, res, next) {
     const id = req.params.id;
     try {
-        const comment = await Cmnt.get(id);
+        const comment = await Cmnt.getPopulated(id);
         res.status(200).json(comment)
     } catch (err) { next(err) }
 };
