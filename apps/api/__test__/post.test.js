@@ -4,9 +4,16 @@ const { request } = require('./../src/config/test-config')
 describe('/Post Routes', () => {
     describe('Get all', () => {
         it('should get all data from db', async () => {
+            const newPost = {
+                "title": "test get all",
+                "content": "this is a test from jest",
+            }
+            const addedPost = await request.post('/post').send(newPost);
             const res = await request.get(`/post`);
             expect(res.status).toEqual(200);
             expect(res.body).toBeDefined();
+            const { id } = addedPost.body
+            await request.delete(`/post/${id}`);
         });
         it('Get all error handler', async () => {
             const res = await request.get(`/posts/`);
@@ -22,7 +29,7 @@ describe('/Post Routes', () => {
             }
             const addedPost = await request.post('/post').send(newPost);
             const { id, title } = addedPost.body
-            const res = await request.get(`/post/${id}?filter=comments`);
+            const res = await request.get(`/post/${id}`);
             expect(res.status).toEqual(200);
             expect(res.body.title).toEqual(title);
             await request.delete(`/post/${id}`);

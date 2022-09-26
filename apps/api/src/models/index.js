@@ -10,7 +10,7 @@ const { User } = require('./User.model');
 
 const sequelize = new Sequelize(
     DATABASE_URL,
-    sequelizeOption
+    // sequelizeOption
 )
 
 const userModel = User(sequelize, DataTypes, zlib, bcrypt)

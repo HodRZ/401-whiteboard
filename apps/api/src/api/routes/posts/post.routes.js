@@ -2,6 +2,7 @@
 const { express } = require('../../../config');
 const { handleNotFound } = require('../../error/400');
 const { handleServerError } = require('../../error/500');
+const { validateToken, validateRefreshToken } = require('../../middlewares/auth');
 const { getPost, createPost, getPostById, deletePost, updatePost, populate } = require('./post.handlers')
 const router = express.Router()
 

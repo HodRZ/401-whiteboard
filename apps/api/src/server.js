@@ -2,10 +2,21 @@
 
 const { postRoute, commentRoute, userRoutes, signinRoute } = require('./api/routes')
 const { express } = require('./config')
-const { morgan, cors, helmet } = require('./config/Utils')
+const { morgan, cors, helmet, cookieParser } = require('./config/Utils')
 const app = express()
 
-app.use(cors())
+
+//-TODO: 
+//- add cors policy
+//- add refresh token route and controller 
+//- compare users using refresh token
+
+
+app.use(cookieParser())
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://401-whiteboard.netlify.app'],
+    credentials: true,
+}))
 app.use(morgan('tiny'))
 app.use(helmet({
     contentSecurityPolicy: false,

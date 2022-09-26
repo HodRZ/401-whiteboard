@@ -1,19 +1,20 @@
-import axios from 'axios';
-import React from 'react';
+import axios from './../../api/axios';
+import React, { useState } from 'react';
 
 function AddPostForm(props) {
+    const [user, setUser] = useState(props.user)
     const addPost = async (e) => {
         e.preventDefault()
         const data = {
             content: e.target.content.value,
-            title: e.target.title.value
+            title: e.target.title.value,
+            UserId: user.id
         }
-        const newPost = await axios.post(`${process.env.REACT_APP_PORT}/post`, data)
+        const newPost = await axios.post(`/post`, data)
         e.target.content.value = ''
         e.target.title.value = ''
         props.updatePosts(newPost.data)
     }
-
     return (
         <div className='md:flex place-content-center '>
             <div className='mx-5 my-8  shadow-md p-6 md:w-[75%] '>

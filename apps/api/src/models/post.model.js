@@ -6,7 +6,7 @@ const post = (sequelize, DataTypes, zlib) => sequelize.define('Post', {
         allowNull: false
     },
     content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         set(data) {
             const deflated = zlib.deflateSync(data).toString('base64')
